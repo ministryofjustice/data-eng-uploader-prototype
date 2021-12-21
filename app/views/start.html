@@ -33,15 +33,16 @@
         {% if serviceName %} {{ serviceName }} {% endif %}
       </h1>
 
-      <p>Use this service to:</p>
+      <p>Use this service to load new data to the Analytical Platform</p>
+
+      <p>You cannot use this service to:</p>
 
       <ul class="govuk-list govuk-list--bullet">
-        <li>do something</li>
-        <li>update your name, address or other details</li>
-        <li>do something else</li>
+        <li>replace existing data in the Analytical Platform</li>
+        <li>upload multiples files at one</li>
       </ul>
 
-      <p>Registering takes around 5 minutes.</p>
+      <p>Uploading the data takes around 2 minutes. Loading the data to the Analytical Platform may take up to a day.</p>
 
       <a href="database_name" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">
         Start now
@@ -52,41 +53,12 @@
 
       <h2 class="govuk-heading-m">Before you start</h2>
 
-      <p>You can also <a href="#">register by post</a>.</p>
-
-      <p>The online service is also available in <a href="#">Welsh (Cymraeg)</a>.</p>
-
-      <p>You can’t register for this service if you’re in the UK illegally.</p>
-
-    </div>
-
-    <div class="govuk-grid-column-one-third">
-
-      <aside class="app-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
-          Subsection
-        </h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-!-font-size-16">
-            <li>
-              <a href="#">
-                Related link
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Related link
-              </a>
-            </li>
-            <li>
-              <a href="#" class="govuk-!-font-weight-bold">
-                More <span class="govuk-visually-hidden">in Subsection</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Make sure your data is less than 2MB </li>
+        <li>Make sure your data is in .json or .csv format</li>
+      </ul>
 
     </div>
+
   </div>
 {% endblock %}
