@@ -9,11 +9,21 @@
 {% endblock %}
 
 {% block content %}
+
+<script>
+  function doClick() {
+    var databaseType = "{{ data['database_type']}}"
+     if (databaseType == 'existing')
+         window.location.href = "table_name.html";
+     else
+         window.location.href = "table_name_new.html";
+  }
+</script>
+
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-xl">Check your answers before uploading your data</h1>
-
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
@@ -24,10 +34,7 @@
             mojap_derived_table
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="#">
-              Change
-              <span class="govuk-visually-hidden"> previous application number</span>
-            </a>
+            <a href="database_name.html">Change</a>
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -38,24 +45,7 @@
             my_table_name
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="#">
-              Change
-              <span class="govuk-visually-hidden"> licence type</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Extraction Date
-          </dt>
-          <dd class="govuk-summary-list__value">
-            2021/01/01 10:04:02
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="#">
-              Change
-              <span class="govuk-visually-hidden"> home address</span>
-            </a>
+            <a href="table_name.html" onclick="doClick(); return false;">Change</a>
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -66,24 +56,21 @@
             Confirmed
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="#">
-              Change
-              <span class="govuk-visually-hidden"> licence period</span>
-            </a>
+            <a href="dpia_confirmed.html">Change</a>
           </dd>
         </div>
       </dl>
 
-      <h2 class="govuk-heading-m">Now send your application</h2>
+      <h2 class="govuk-heading-m">Now upload you data</h2>
 
       <p>By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
 
-      <form action="/confirmation" method="post" novalidate>
+      <form action="confirmation" method="post" novalidate>
 
         <input type="hidden" name="answers-checked" value="true">
 
         <button type="submit" class="govuk-button" data-module="govuk-button">
-          Accept and send
+          Confirm and upload
         </button>
 
       </form>

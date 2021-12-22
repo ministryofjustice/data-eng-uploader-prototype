@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Question page
+  DPIA Status
 {% endblock %}
 
 {% block beforeContent %}
@@ -10,26 +10,36 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <form action="file_location" method="post">
 
-      <h1 class="govuk-heading-xl">DPIA</h1>
+  {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-      <label class="govuk-label moj-search__label govuk-!-font-weight-bold" for="search">
-        Have you completed a Data Protection Impact Asessment?
-      </label>
-      <br>
-      <div class="govuk-button-group">
-        <form class="form" action="file_location" method="post">
-          <button class="govuk-button" data-module="govuk-button">Yes</button>
-        </form>
+    {{ govukRadios({
+      classes: "govuk-radios--inline",
+      idPrefix: "dpia-confirmation",
+      name: "dpia-confirmation",
+      fieldset: {
+        legend: {
+          text: "DPIA Status",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        text: "You may need to complete a DPIA. Can you confirm that you have completed the requirements for this data source?"
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        }
+      ]
+    }) }}
 
-        <form class="form" action="ineligible" method="post">
-          <button class="govuk-button" data-module="govuk-button">No</button>
-        </form>
-      </div>
+    {{ govukButton({
+      text: "Continue"
+    }) }}
 
-    </div>
-  </div>
+  </form>
 
 {% endblock %}

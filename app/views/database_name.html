@@ -1,61 +1,98 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Question page
+Database Name
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<h1 class="govuk-heading-xl">Database Name</h1>
 
-      <h1 class="govuk-heading-xl">Database Name</h1>
+<form action="/database_answer" method="post">
 
-      <div class="moj-search">
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
-        <form action="table_name" method="post">
-      
-          <div class="govuk-form-group">
-            <label class="govuk-label moj-search__label" for="search">
-              Search for an existing database
-            </label>
-      
-            <input class="govuk-input moj-search__input " id="search" name="search" type="search" aria-describedby="search-hint">
-          </div>
+{% set existingHtml %}
+{{ govukSelect({
+  id: "database_list",
+  name: "database_list",
+  classes: "govuk-!-width-one-third",
+  items: [
+    {
+      value: "database_1",
+      text: "database_1",
+      selected: true
+    },
+    {
+      value: "database_2",
+      text: "database_2"
+    },
+    {
+      value: "database_3",
+      text: "database_3"
+    },
+    {
+      value: "database_4",
+      text: "database_4"
+    }
+  ]
+}) }}
+{% endset -%}
 
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="sort">
-              Select an existing database
-            </label>
-            <select class="govuk-select" id="sort" name="sort">
-              <option value="published" selected>other</option>
-              <option value="updated" >db2</option>
-              <option value="views">db3</option>
-              <option value="comments">db4</option>
-            </select>
-          </div>
-          
-      
+{% set newHtml %}
+{{ govukInput({
+  id: "database_new",
+  name: "database_new",
+  hint: {
+    text: "Do not include spaces, capital letters or special characters"
+  },
+  classes: "govuk-!-width-one-third"
+}) }}
+{% endset -%}
 
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="sort">
-              Otherwise enter the name of the new database
-            </label>
-            <input class="govuk-input" id="event-name" name="event-name" type="text">
-          </div>
-      
-          <button class="govuk-button moj-search__button " data-module="govuk-button">
-            Continue
-          </button>
-      
-        </form>
-      </div>
+{{ govukRadios({
+  idPrefix: "database_type",
+  name: "database_type",
+  fieldset: {
+    legend: {
+      text: "Which database should the data be uploaded to?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select one option."
+  },
+  items: [
+    {
+      value: "existing",
+      text: "Select an existing database",
+      conditional: {
+        html: existingHtml
+      }
+    },
+    {
+      value: "new",
+      text: "Create a new database",
+      conditional: {
+        html: newHtml
+      }
+    }
 
-    </div>
-  </div>
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
 
 {% endblock %}
