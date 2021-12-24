@@ -10,7 +10,7 @@ Table Name
 
 {% block content %}
 
-<h1 class="govuk-heading-xl">Table Name</h1>
+<h1 class="govuk-heading-xl">Table</h1>
 
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -22,7 +22,7 @@ Table Name
   id: "table_list",
   name: "table_list",
   hint: {
-    text: "Select one table"
+    text: "Select one table."
   },
   classes: "govuk-!-width-one-third",
   items: [
@@ -52,7 +52,7 @@ Table Name
   id: "table_new",
   name: "table_new",
   hint: {
-    text: "Do not include spaces, capital letters or special characters"
+    text: "Specify the name of the new table to create. Do not include spaces, capital letters or special characters."
   },
   classes: "govuk-!-width-one-third"
 }) }}
@@ -69,19 +69,19 @@ Table Name
     }
   },
   hint: {
-    text: "Select one option"
+    text: "Select one option."
   },
   items: [
     {
       value: "existing",
-      text: "An existing table",
+      text: "Upload to an existing table",
       conditional: {
         html: existingHtml
       }
     },
     {
       value: "new",
-      text: "A new table",
+      text: "Upload to a new table",
       conditional: {
         html: newHtml
       }
