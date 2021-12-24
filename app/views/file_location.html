@@ -10,29 +10,33 @@
 
 {% block content %}
 
-{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-{{ govukFileUpload({
-  id: "file-upload-1",
-  name: "file-upload-1",
-  label: {
-    text: "Upload the file",
-    classes: "govuk-label--l",
-    isPageHeading: true
-  },
-  hint: {
-    text: "The file must be smaller than 2MB and in csv or json format"
-  },
-  errorMessage: {
-    text: "The file must be smaller than 2MB"
-  }
-}) }}
+      <h1 class="govuk-heading-xl">Upload the data</h1>
 
+      <form class="form" action="check_answers" method="post">
 
-{{ govukButton({
-  text: "Continue",
-  href: "check_answers.html"
-}) }}
+        <p>Select the file to upload. It must be:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>less than 2 MB</li>
+          <li>CSV or JSON</li>
+        </ul>
+
+        <div class="govuk-form-group govuk-form-group--error">
+
+          <p id="file-upload-1-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> The CSV must be smaller than 2MB
+          </p>
+          <input class="govuk-file-upload govuk-file-upload--error" id="file-upload-1" name="file-upload-1" type="file" aria-describedby="file-upload-1-error">
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
 
 {% endblock %}

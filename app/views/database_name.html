@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Database Name
+Database
 {% endblock %}
 
 {% block beforeContent %}
@@ -10,7 +10,7 @@ Database Name
 
 {% block content %}
 
-<h1 class="govuk-heading-xl">Database Name</h1>
+<h1 class="govuk-heading-xl">Database</h1>
 
 <form action="/database_answer" method="post">
 
@@ -24,6 +24,9 @@ Database Name
   id: "database_list",
   name: "database_list",
   classes: "govuk-!-width-one-third",
+  hint: {
+    text: "Select one database"
+  },
   items: [
     {
       value: "database_1",
@@ -68,19 +71,19 @@ Database Name
     }
   },
   hint: {
-    text: "Select one option."
+    text: "Select one option"
   },
   items: [
     {
       value: "existing",
-      text: "Select an existing database",
+      text: "An existing database",
       conditional: {
         html: existingHtml
       }
     },
     {
       value: "new",
-      text: "Create a new database",
+      text: "A new database",
       conditional: {
         html: newHtml
       }

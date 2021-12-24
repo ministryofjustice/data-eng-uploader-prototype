@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Governance
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Governance requirements</h1>
+
+      <form class="form" action="file_location" method="post">
+
+        <p class="govuk-heading-l">Have you completed the relevant governance requirements?</p>
+
+        <p>This could include:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>a Data Protection Impact Assessment (DPIA)</li>
+          <li>a data movement form</li>
+          <li>other local governance requirements</li>
+        </ul>
+
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+          I confirm I have completed relevant governance requirements
+          </label>
+        </div>
+
+        <br>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
