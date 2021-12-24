@@ -21,6 +21,9 @@ Table Name
 {{ govukSelect({
   id: "table_list",
   name: "table_list",
+  hint: {
+    text: "Select one table"
+  },
   classes: "govuk-!-width-one-third",
   items: [
     {
@@ -66,19 +69,19 @@ Table Name
     }
   },
   hint: {
-    text: "Select one option."
+    text: "Select one option"
   },
   items: [
     {
       value: "existing",
-      text: "Select an existing table",
+      text: "An existing table",
       conditional: {
         html: existingHtml
       }
     },
     {
       value: "new",
-      text: "Create a new table",
+      text: "A new table",
       conditional: {
         html: newHtml
       }
@@ -89,7 +92,7 @@ Table Name
 
 {{ govukButton({
   text: "Continue",
-  href: "dpia_confirmed.html"
+  href: "governance.html"
 }) }}
 
 {% endblock %}

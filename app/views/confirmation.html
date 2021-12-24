@@ -10,31 +10,44 @@
     <div class="govuk-grid-column-two-thirds">
 
       <div class="govuk-panel govuk-panel--confirmation">
-        <h1 class="govuk-panel__title">Application complete</h1>
+        <h1 class="govuk-panel__title">Upload complete</h1>
       </div>
 
-      <h2 class="govuk-heading-m">Application Details</h2> 
-      <ul class="govuk-list govuk-list--bullet">
-        <li>Database name: </li>
-        <li>Table name: </li>
-        <li>Upload Date:</li>
-        <li>Upload Time:</li>
-      </ul>
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Upload details</caption>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Database</th>
+            <td class="govuk-table__cell">database_1</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Table</th>
+            <td class="govuk-table__cell">table_1</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Upload date</th>
+            <td class="govuk-table__cell">20/20/2021</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Upload time</th>
+            <td class="govuk-table__cell">14:05:31</td>
+          </tr>
+        </tbody>
+      </table>
 
       <!-- <p>
         We have sent you a confirmation email.
       </p> -->
 
       <h2 class="govuk-heading-m">What happens next</h2>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>We have loaded your data to the landing area.</li>
-        <li>We will notify you if the data fails to be loaded to the Analytics Platform.</li>
-      </ul>
+      <p>It may take up to a day for the data to be available on the Analytical Platform.</p>
+      <p>If your data is not available in the Analytical Platform after 2 days, please contact <a href="mailto:data-engineering@digital.justice.gov.uk">data-engineering@digital.justice.gov.uk</a>.</p>
+      <p>You can now close this screen or start again to upload more data.</p>
 
-      <h2 class="govuk-heading-m">Do you wish to upload more data?</h2>
       {% from "govuk/components/button/macro.njk" import govukButton %}
       {{ govukButton({
         text: "Upload more data",
+        classes: "govuk-button--secondary",
         href: "database_name.html"
       }) }}
 
